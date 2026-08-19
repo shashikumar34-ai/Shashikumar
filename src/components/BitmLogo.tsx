@@ -1,0 +1,211 @@
+import React from 'react';
+
+interface BitmLogoProps {
+  className?: string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'auto';
+  variant?: 'light' | 'dark' | 'transparent' | 'badge';
+  showSubtext?: boolean;
+}
+
+/**
+ * Official Ballari Institute of Technology & Management (BITM) Logo
+ * Exact, pixel-perfect reproduction matching the official institutional PNG mark:
+ * - Upper-left cyan & black orbital swooshes
+ * - 3D Wireframe Globe with high-contrast white longitudinal/latitudinal grid
+ * - Exact cyan BITM custom wordmark (#00A3E8)
+ * - "ESTD : 1997" establishment text with middle cyan accent swoosh
+ * - Outer elliptical orbit path
+ * - "ENGINEERING • TECHNOLOGY • MANAGEMENT" curved subtext with cyan separator dots
+ */
+export const BitmLogo: React.FC<BitmLogoProps> = ({
+  className = '',
+  size = 'md',
+  variant = 'badge',
+  showSubtext = true
+}) => {
+  const sizeClasses = {
+    xs: 'h-7 w-[52px]',
+    sm: 'h-9 w-[67px]',
+    md: 'h-11 sm:h-12 w-[82px] sm:w-[90px]',
+    lg: 'h-16 w-[120px]',
+    xl: 'h-24 w-[180px]',
+    '2xl': 'h-32 w-[240px]',
+    auto: 'h-full w-full'
+  };
+
+  const containerStyles = {
+    badge: 'bg-white text-slate-900 border border-slate-200/90 shadow-sm rounded-xl px-2 py-1',
+    light: 'bg-white text-slate-900',
+    dark: 'bg-slate-900 text-white rounded-xl p-1',
+    transparent: 'bg-transparent'
+  }[variant];
+
+  return (
+    <div className={`inline-flex items-center flex-shrink-0 select-none ${containerStyles} ${className}`}>
+      <svg
+        viewBox="0 0 380 205"
+        className={`${sizeClasses[size]} flex-shrink-0`}
+        preserveAspectRatio="xMidYMid meet"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Ballari Institute of Technology & Management (BITM) Logo"
+      >
+        {/* Top-Left Cyan Orbital Swoosh */}
+        <path
+          d="M 22 92 C 8 52, 45 16, 120 12 C 160 10, 198 12, 215 15 C 175 14, 115 16, 62 34 C 34 44, 18 64, 22 92 Z"
+          fill="#00A3E8"
+        />
+
+        {/* Top-Left Inner Black Arc Sweeping Right */}
+        <path
+          d="M 32 98 C 22 66, 52 32, 130 24 C 215 16, 310 32, 348 68 C 300 40, 205 30, 125 35 C 70 39, 44 68, 50 98 Z"
+          fill="#050811"
+        />
+
+        {/* Outer Elliptical Black Swoosh (Wrapping Right and Bottom) */}
+        <path
+          d="M 52 98 C 65 138, 145 162, 255 158 C 322 154, 368 128, 372 96 C 368 136, 305 165, 220 168 C 130 170, 60 144, 52 98 Z"
+          fill="#050811"
+        />
+
+        {/* Right-Side Bottom Cyan Accent Swoosh */}
+        <path
+          d="M 346 92 C 356 112, 348 134, 320 148 C 344 134, 350 114, 346 92 Z"
+          fill="#00A3E8"
+        />
+
+        {/* 3D Wireframe Globe on the Left */}
+        <g transform="translate(85, 96)">
+          {/* Black Spherical Body */}
+          <circle cx="0" cy="0" r="37" fill="#050811" />
+
+          {/* Longitudinal Meridians (White Grid) */}
+          <ellipse cx="0" cy="0" rx="37" ry="37" stroke="#FFFFFF" strokeWidth="2.4" fill="none" />
+          <ellipse cx="0" cy="0" rx="27" ry="37" stroke="#FFFFFF" strokeWidth="2.2" fill="none" />
+          <ellipse cx="0" cy="0" rx="14" ry="37" stroke="#FFFFFF" strokeWidth="2.2" fill="none" />
+          <line x1="0" y1="-37" x2="0" y2="37" stroke="#FFFFFF" strokeWidth="2.4" />
+
+          {/* Latitudinal Parallels (White Grid) */}
+          <line x1="-37" y1="0" x2="37" y2="0" stroke="#FFFFFF" strokeWidth="2.4" />
+          <path d="M -35 -13 C -22 -9, 22 -9, 35 -13" stroke="#FFFFFF" strokeWidth="2.0" fill="none" />
+          <path d="M -29 -25 C -16 -20, 16 -20, 29 -25" stroke="#FFFFFF" strokeWidth="2.0" fill="none" />
+          <path d="M -35 13 C -22 9, 22 9, 35 13" stroke="#FFFFFF" strokeWidth="2.0" fill="none" />
+          <path d="M -29 25 C -16 20, 16 20, 29 25" stroke="#FFFFFF" strokeWidth="2.0" fill="none" />
+        </g>
+
+        {/* Cyan Wordmark: "BITM" */}
+        <g fill="#00A3E8">
+          {/* Stylized 'B' with characteristic left top winglet */}
+          <path
+            d="M 136 94 
+               L 160 89 
+               L 160 83 
+               L 139 86 
+               L 143 68 
+               L 186 61 
+               C 202 59, 212 66, 211 78 
+               C 210 88, 201 94, 190 96 
+               C 204 100, 211 109, 210 124 
+               C 208 139, 194 148, 174 150 
+               L 138 153 
+               Z
+               M 160 104 
+               L 158 133 
+               L 173 131 
+               C 184 130, 191 123, 192 114 
+               C 193 106, 187 101, 175 102 
+               Z
+               M 163 76 
+               L 161 93 
+               L 174 90 
+               C 184 89, 189 83, 190 77 
+               C 190 71, 185 67, 176 69 
+               Z"
+          />
+
+          {/* Letter 'I' */}
+          <path
+            d="M 221 64 
+               L 242 61 
+               L 230 142 
+               L 209 146 
+               Z"
+          />
+
+          {/* Letter 'T' */}
+          <path
+            d="M 246 60 
+               L 310 50 
+               L 306 70 
+               L 286 73 
+               L 275 137 
+               L 254 140 
+               L 265 76 
+               L 248 79 
+               Z"
+          />
+
+          {/* Letter 'M' */}
+          <path
+            d="M 310 51 
+               L 332 47 
+               L 342 104 
+               L 362 42 
+               L 382 39 
+               L 366 123 
+               L 346 127 
+               L 355 76 
+               L 334 130 
+               L 320 132 
+               L 316 83 
+               L 302 135 
+               L 286 138 
+               Z"
+          />
+        </g>
+
+        {/* "ESTD : 1997" Text */}
+        <text
+          x="238"
+          y="160"
+          textAnchor="middle"
+          fill="#050811"
+          fontSize="20.5"
+          fontWeight="900"
+          fontFamily="Arial, 'Helvetica Neue', Helvetica, sans-serif"
+          letterSpacing="2.8"
+        >
+          ESTD : 1997
+        </text>
+
+        {/* Small Cyan Accent Underline Swoosh below ESTD : 1997 */}
+        <path
+          d="M 190 174 C 235 174, 280 167, 308 152 C 275 163, 235 169, 190 169 Z"
+          fill="#00A3E8"
+        />
+
+        {/* Subtext: "ENGINEERING • TECHNOLOGY • MANAGEMENT" */}
+        {showSubtext && (
+          <g>
+            <path
+              id="bitmBottomArcPath"
+              d="M 36 142 C 95 198, 260 205, 375 152"
+              fill="none"
+            />
+            <text
+              fill="#050811"
+              fontSize="14.2"
+              fontWeight="800"
+              fontFamily="Arial, 'Helvetica Neue', Helvetica, sans-serif"
+              letterSpacing="1.4"
+            >
+              <textPath href="#bitmBottomArcPath" startOffset="50%" textAnchor="middle">
+                ENGINEERING <tspan fill="#00A3E8">•</tspan> TECHNOLOGY <tspan fill="#00A3E8">•</tspan> MANAGEMENT
+              </textPath>
+            </text>
+          </g>
+        )}
+      </svg>
+    </div>
+  );
+};

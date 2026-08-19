@@ -1,0 +1,7 @@
+{
+  "name": "BITM Ballari",
+  "description": "Ballari Institute of Technology & Management (BITM) - Premier engineering, management and research institution in Karnataka accredited by NAAC A+ and NBA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
